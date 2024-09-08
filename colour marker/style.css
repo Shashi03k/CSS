@@ -1,0 +1,60 @@
+General styling
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Marker container styling */
+.marker-container {
+    display: inline-block;
+    text-align: left;
+}
+
+/* Common styling for each marker */
+.marker {
+    width: 300px;
+    height: 30px;
+    margin: 10px 0;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
+    overflow: hidden;
+    /* Removed border-radius to make edges sharp */
+}
+
+/* Gradient backgrounds for each color marker */
+.marker.red {
+    background: linear-gradient(to right, #c21807, #ffcccb, #c21807); /* Dark red edges */
+}
+
+.marker.green {
+    background: linear-gradient(to right, #0f0, #aaf4a1, #0f0); /* Green gradient with darker edges */
+}
+
+.marker.blue {
+    background: linear-gradient(to right, #1e88e5, #aad1ff, #1e88e5); /* Blue with darker edges */
+}
+
+/* Black lines adjusted to appear together at 30% of total marker length */
+.marker::before,
+.marker::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: black;
+}
+
+.marker::before {
+    left: 30%; /* First black line placed at 30% from the left */
+}
+
+.marker::after {
+    left: calc(30% + 8px); /* Second black line positioned 8px to the right of the first one */
+}
